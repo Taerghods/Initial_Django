@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+  <style>
+    body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    img{
+        height: 80px;
+        width: 80px;
+    }
+    .btn_blue {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+    .input_blue {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #80b9ff;
+        }
+  </style>
+</head>
+<body dir="rtl">
+    <form method="get" action="{% url 'product_page' %}">
+        <input type="text" class="input_blue" name="query" value="{{ query }}" placeholder="جستجو بر اساس نام محصول">
+        <button type="submit" class="btn_blue">جستجو</button>
+    </form>
+    <hr/>
+    <hr/>
+    <div class="products">
+        {% if data %}
+          {% for i in data %}
+            <p>نام : {{ i.name }}</p>
+            <p>قیمت : {{ i.price }}</p>
+            <img src="{{ i.image.url }}" alt="{{ i.image }}">
+            <hr/>
+          {% endfor %}
+        {% else %}
+          <p>محصولی یافت نشد.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

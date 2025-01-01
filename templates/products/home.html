@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online store</title>
+  <style>
+    body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    .btn_blue {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+    h1{
+        color: darkviolet;
+    }
+  </style>
+</head>
+<body dir="rtl">
+    <div>
+        <h1>" به فروشگاه آنلاین ما خوش آمدید! "</h1>
+        <button class="btn_blue" onclick="showAdminPage()">ادمین</button>
+        <button class="btn_blue" onclick="showProductPage()">محصولات</button>
+    </div>
+    <script>
+        function showAdminPage() {
+            window.location.href = 'http://127.0.0.1:8000/admin/'
+        }
+        function showProductPage() {
+            window.location.href = 'http://127.0.0.1:8000/product/'
+        }
+    </script>
+</body>
+</html>
