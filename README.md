@@ -1,1 +1,1 @@
-# Initial_django_1
+# Initial_Django
