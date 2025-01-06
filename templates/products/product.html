@@ -12,9 +12,36 @@
             text-align: center;
             margin-top: 50px;
         }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    table th, table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    table th {
+        background-color: #ff8000;
+        color: white;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+        background-color: #f1f1f1;
+    }
+
     img{
         height: 80px;
         width: 80px;
+        border-radius: 5px;
     }
     .btn_blue {
             padding: 15px 30px;
@@ -32,7 +59,7 @@
             margin: 10px;
             cursor: pointer;
             border-radius: 5px;
-            background-color: #80b9ff;
+            background-color: #b6d0ef;
         }
   </style>
 </head>
@@ -41,16 +68,26 @@
         <input type="text" class="input_blue" name="query" value="{{ query }}" placeholder="جستجو بر اساس نام محصول">
         <button type="submit" class="btn_blue">جستجو</button>
     </form>
-    <hr/>
-    <hr/>
-    <div class="products">
+    <div>
         {% if data %}
-          {% for i in data %}
-            <p>نام : {{ i.name }}</p>
-            <p>قیمت : {{ i.price }}</p>
-            <img src="{{ i.image.url }}" alt="{{ i.image }}">
-            <hr/>
-          {% endfor %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>نام محصول</th>
+                        <th>قیمت</th>
+                        <th>عکس </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                        <tr>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.price }}</td>
+                            <td><img src="{{ i.image.url }}" alt="{{ i.image }}"></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         {% else %}
           <p>محصولی یافت نشد.</p>
         {% endif %}
