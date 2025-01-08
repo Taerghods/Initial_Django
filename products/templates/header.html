@@ -1,0 +1,37 @@
+{% block header %}
+<style>
+    .header{
+        background-color: #ff8000;
+        height: 150px;
+        padding: 25px 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 30px 0 30px;
+    }
+    .div_nav{
+        display: flex;
+        gap: 30px;
+        color: #007bff;
+    }
+    h1{
+        padding-top: 10px;
+        color: #007bff;
+    }
+</style>
+<div class="header">
+    <h1>سوپر مارکت آنلاین</h1>
+        <nav>
+            <div class="div_nav">
+                <a href='http://127.0.0.1:8000/admin/'>ادمین</a>
+                <a href='http://127.0.0.1:8000/product_list/'> همه محصولات</a>
+            </div>
+            <div>
+                <a href='http://127.0.0.1:8000'>خانه</a>
+            </div>
+        </nav>
+</div>
+{% endblock header %}

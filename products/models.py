@@ -10,7 +10,7 @@ class Product(models.Model):
     name = models.CharField('نام محصول', max_length=200)
     price = models.IntegerField('قیمت محصول')
     image = models.ImageField('تصویر', upload_to='products_images/')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='product_set')
 
     def __str__(self):
         return self.name

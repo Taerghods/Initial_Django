@@ -1,0 +1,88 @@
+{% include 'header.html' %}
+{% block main %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        direction: rtl;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    table th, table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    table th {
+        background-color: #ffa041;
+        color: white;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    img{
+        height: 80px;
+        width: 80px;
+        border-radius: 5px;
+    }
+    .btn_blue {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+    .input_blue {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #b6d0ef;
+        }
+</style>
+<form method="get" action="{% url 'product_list' %}">
+    <input type="text" class="input_blue" name="query" value="{{ query }}" placeholder="جستجو بر اساس نام محصول">
+    <button type="submit" class="btn_blue">جستجو</button>
+</form>
+<div>
+    {% if data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>نام محصول</th>
+                    <th>قیمت</th>
+                    <th>عکس </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                    <tr>
+                        <td><a href="/product_detail/{{ i.id }}">{{ i.name }}</a></td>
+                        <td>{{ i.price }}</td>
+                        <td><img src="{{ i.image.url }}" alt="{{ i.image }}"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+      <p>محصولی یافت نشد.</p>
+    {% endif %}
+</div>
+{% endblock main %}
+{% include 'footer.html' %}

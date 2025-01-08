@@ -1,0 +1,57 @@
+{% include 'header.html' %}
+{% block main %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        direction: rtl;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: center;
+    }
+    table th, table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+    table th {
+        background-color: #ffa041;
+        color: white;
+    }
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    table tr:hover {
+        background-color: #f1f1f1;
+    }
+    img{
+        height: 80px;
+        width: 80px;
+        border-radius: 5px;
+    }
+</style>
+<p> جزئیات محصول:</p>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>دسته بندی محصول</th>
+                <th>نام محصول</th>
+                <th>قیمت</th>
+                <th>عکس </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ data.category.name }}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.price }}</td>
+                <td><img src="{{ data.image.url }}" alt="{{ data.image }}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock main %}
+{% include 'footer.html' %}
